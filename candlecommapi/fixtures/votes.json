@@ -1,0 +1,11 @@
+[
+    {
+        "model": "candlecommapi.vote",
+        "pk": 1,
+        "fields": {
+            "candle": 1,
+            "profile": 1,
+            "like": true
+        }
+    }
+]

@@ -1,0 +1,45 @@
+[
+    {
+        "model": "candlecommapi.scent",
+        "pk": 1,
+        "fields": {
+            "fragrance": "Vanilla Breeze"
+        }
+    },
+    {
+        "model": "candlecommapi.scent",
+        "pk": 2,
+        "fields": {
+            "fragrance": "Morroccan Cashmere"
+        }
+    },
+    {
+        "model": "candlecommapi.scent",
+        "pk": 3,
+        "fields": {
+            "fragrance": "Peach Cardamon"
+        }
+    },
+    {
+        "model": "candlecommapi.scent",
+        "pk": 4,
+        "fields": {
+            "fragrance": "Daisy Musk"
+        }
+    },
+    {
+        "model": "candlecommapi.scent",
+        "pk": 5,
+        "fields": {
+            "fragrance": "Cucumber Melon"
+        }
+    },
+    {
+        "model": "candlecommapi.scent",
+        "pk": 6,
+        "fields": {
+            "fragrance": "Cedarwood"
+        }
+    }
+
+]

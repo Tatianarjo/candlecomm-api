@@ -1,0 +1,12 @@
+[
+    {
+        "model": "candlecommapi.candle",
+        "pk": 1,
+        "fields": {
+            "candle_name": "Brunch in Cabo",
+            "profile": 1,
+            "jar_color": 1,
+            "upload": 1
+        }
+    }
+]

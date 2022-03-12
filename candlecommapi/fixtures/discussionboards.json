@@ -1,0 +1,38 @@
+[
+    {
+        "model": "candlecommapi.discussionboard",
+        "pk": 1,
+        "fields": {
+            "profile": 1,
+            "subject": "Best wax for wooden wicks",
+            "message": "One of my favorite waxes to use is the 464 soy wax!"
+        }
+    },
+    {
+        "model": "candlecommapi.discussionboard",
+        "pk": 2,
+        "fields": {
+            "profile": 1,
+            "subject": "How many wicks are too many?",
+            "message": "I like two but I really want to use three now!"
+        }
+    }, {
+        "model": "candlecommapi.discussionboard",
+        "pk": 3,
+        "fields": {
+            "profile": 1,
+            "subject": "The best scents to mix",
+            "message": "Definitely anything with vanilla because it's very light!"
+        }
+    },
+    {
+        "model": "candlecommapi.discussionboard",
+        "pk": 4,
+        "fields": {
+            "profile": 1,
+            "subject": "Dye blocks vs liquid dye",
+            "message": "If you're using soy definitely liquid!"
+        }
+    }
+]
+

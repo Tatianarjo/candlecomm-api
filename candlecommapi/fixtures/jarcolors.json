@@ -1,0 +1,44 @@
+[
+    {
+        "model": "candlecommapi.jarcolor",
+        "pk": 1,
+        "fields": {
+            "color": "white"
+        }
+    },
+    {
+        "model": "candlecommapi.jarcolor",
+        "pk": 2,
+        "fields": {
+            "color": "purple"
+        }
+    },
+    {
+        "model": "candlecommapi.jarcolor",
+        "pk": 3,
+        "fields": {
+            "color": "blue"
+        }
+    },
+    {
+        "model": "candlecommapi.jarcolor",
+        "pk": 4,
+        "fields": {
+            "color": "black"
+        }
+    },
+    {
+        "model": "candlecommapi.jarcolor",
+        "pk": 5,
+        "fields": {
+            "color": "yellow"
+        }
+    },
+    {
+        "model": "candlecommapi.jarcolor",
+        "pk": 6,
+        "fields": {
+            "color": "pink"
+        }
+    }
+]

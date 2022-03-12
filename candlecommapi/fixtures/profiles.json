@@ -1,0 +1,10 @@
+[
+    {
+      "model": "candlecommapi.profile",
+      "pk": 1,
+      "fields": {
+        "user": 1,
+        "bio": "I am me!"
+      }
+    }
+  ]

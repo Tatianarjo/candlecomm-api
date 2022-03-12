@@ -5,3 +5,4 @@ from .jarcolor import JarColor
 from .candlescent import CandleScent
 from .vote import Vote
 from .upload import Upload
+from .discussionboard import DiscussionBoard

@@ -17,7 +17,3 @@ SELECT * FROM candlecommapi_user;
 SELECT * FROM candlecommapi_discussionboard;
 
 SELECT * FROM candlecommapi_candle;
-
-
-
-

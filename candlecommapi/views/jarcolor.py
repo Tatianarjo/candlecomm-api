@@ -114,7 +114,7 @@ class JarColorView(ViewSet):
         jar_colors = JarColor.objects.all()
 
         # Support filtering games by type
-        #    http://localhost:8000/games?type=1
+        #    http://localhost:8000/jarcolors?type=1
         #
         # That URL will retrieve all tabletop games
         # game_type = self.request.query_params.get('type', None)

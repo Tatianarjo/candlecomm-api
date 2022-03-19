@@ -7,7 +7,7 @@ from candlecommapi.models import Scent
 
 
 class ScentView(ViewSet):
-    """Level up scents"""
+    """CandleComm scents"""
 
     def retrieve(self, request, pk=None):
         """Handle GET requests for single scent

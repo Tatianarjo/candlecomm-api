@@ -87,7 +87,7 @@ class CandleView(ViewSet):
         # Do mostly the same thing as POST, but instead of
         # creating a new instance of Game, get the game record
         # from the database whose primary key is `pk`
-        candle = Candle()
+        candle = Candle(pk=pk)
         candle.profile = profile
         candle.candle_name = request.data["candle_name"]
         
@@ -96,8 +96,9 @@ class CandleView(ViewSet):
         candle.scent = scent
         jar_color = JarColor.objects.get(pk=request.data["jar_color"])
         candle.jar_color = jar_color
-        upload = Upload.objects.get(pk=request.date["upload"])
-        candle.upload = upload
+        candle.save()
+        # upload = Upload.objects.get(pk=request.data["upload"])
+        # candle.upload = upload
 
         # 204 status code means everything worked but the
         # server is not sending back any data in the response

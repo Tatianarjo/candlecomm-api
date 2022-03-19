@@ -29,7 +29,6 @@ class CandleView(ViewSet):
         candle = Candle()
         candle.profile = profile
         candle.candle_name = request.data["candle_name"]
-        
 
         # Use the Django ORM to get the record from the database
         # whose `id` is what the client passed as the
@@ -38,8 +37,8 @@ class CandleView(ViewSet):
         candle.scent = scent
         jar_color = JarColor.objects.get(pk=request.data["jar_color"])
         candle.jar_color = jar_color
-        upload = Upload.objects.get(pk=request.date["upload"])
-        candle.upload = upload
+        # upload = Upload.objects.get(pk=request.data["upload"])
+        # candle.upload = upload
 
         
 

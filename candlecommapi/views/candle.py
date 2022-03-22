@@ -1,4 +1,5 @@
 """View module for handling requests about games"""
+from operator import truediv
 from django.core.exceptions import ValidationError
 from rest_framework import status
 from django.http import HttpResponseServerError
@@ -21,7 +22,7 @@ class CandleView(ViewSet):
 
         # Uses the token passed in the `Authorization` header
         profile = Profile.objects.get(user=request.auth.user)
-        
+               
 
         # Create a new Python instance of the Game class
         # and set its properties from what was sent in the
@@ -29,26 +30,33 @@ class CandleView(ViewSet):
         candle = Candle()
         candle.profile = profile
         candle.candle_name = request.data["candle_name"]
-
+        import pdb
+        pdb.set_trace()
         # Use the Django ORM to get the record from the database
         # whose `id` is what the client passed as the
         # `gameTypeId` in the body of the request.
-        scent = Scent.objects.get(pk=request.data["scent"])
-        candle.scent = scent
+        # scent = Scent.objects.get(pk=request.data["scent"])
+        # scent = request.data["scent"]
+        
+        # candle.scent = scent
         jar_color = JarColor.objects.get(pk=request.data["jar_color"])
         candle.jar_color = jar_color
         # upload = Upload.objects.get(pk=request.data["upload"])
         # candle.upload = upload
-
-        
+      
+        # user_profile.rolle.add(self.cleaned_data['rolle'])
 
         # Try to save the new candle to the database, then
         # serialize the candle instance as JSON, and send the
         # JSON as a response to the client request
         try:
             candle.save()
+            # for scent in request.data["scent"]:
+            scents = Scent.objects.filter(pk__in=request.data['scent'])
+            candle.scent.set(scents)
             serializer = CandleSerializer(candle, context={'request': request})
             return Response(serializer.data)
+# tags = Tag.objects.filter(pk__in=request.data['tags']
 
         # If anything went wrong, catch the exception and
         # send a response with a 400 status code to tell the
@@ -91,7 +99,8 @@ class CandleView(ViewSet):
         candle.profile = profile
         candle.candle_name = request.data["candle_name"]
         
-
+        
+        
         scent = Scent.objects.get(pk=request.data["scent"])
         candle.scent = scent
         jar_color = JarColor.objects.get(pk=request.data["jar_color"])
@@ -145,12 +154,24 @@ class CandleView(ViewSet):
             candles, many=True, context={'request': request})
         return Response(serializer.data)
 
+class CandleScentSerializer(serializers.ModelSerializer):
+    """JSON serializer for games
+
+    Arguments:
+        serializer type
+    """
+    class Meta:
+        model = Scent
+        fields = ('id','fragrance')
+        depth = 1
+
 class CandleSerializer(serializers.ModelSerializer):
     """JSON serializer for games
 
     Arguments:
         serializer type
     """
+    scent=CandleScentSerializer(many=True)
     class Meta:
         model = Candle
         fields = ('id', 'candle_name', 'scent', 'profile', 'jar_color', 'upload')

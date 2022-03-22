@@ -4,7 +4,7 @@
         "pk": 1,
         "fields": {
             "candle_name": "Brunch in Cabo",
-            "scent": 1,
+            "scent": [1, 2],
             "profile": 1,
             "jar_color": 1,
             "upload": 1

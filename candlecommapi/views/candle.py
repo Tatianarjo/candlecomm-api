@@ -33,8 +33,8 @@ class CandleView(ViewSet):
         # Use the Django ORM to get the record from the database
         # whose `id` is what the client passed as the
         # `gameTypeId` in the body of the request.
-        scent = Scent.objects.get(pk=request.data["scent"])
-        candle.scent = scent
+        scents = request.data["scents"]
+        
         jar_color = JarColor.objects.get(pk=request.data["jar_color"])
         candle.jar_color = jar_color
         # upload = Upload.objects.get(pk=request.data["upload"])
@@ -47,6 +47,9 @@ class CandleView(ViewSet):
         # JSON as a response to the client request
         try:
             candle.save()
+            for id in scents:
+                scent = Scent.objects.get(pk=id)
+                candle.scents.add(scent)
             serializer = CandleSerializer(candle, context={'request': request})
             return Response(serializer.data)
 
@@ -153,5 +156,5 @@ class CandleSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Candle
-        fields = ('id', 'candle_name', 'scent', 'profile', 'jar_color', 'upload')
+        fields = ('id', 'candle_name', 'scents', 'profile', 'jar_color', 'upload')
         depth = 1

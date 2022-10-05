@@ -3,7 +3,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
-from candlecommapi.models import Scent
+from candlecommapi.models import Scent, scent
 
 
 class ScentView(ViewSet):
@@ -37,7 +37,28 @@ class ScentView(ViewSet):
             scents, many=True, context={'request': request})
         return Response(serializer.data)
 
+    def create(self, request):
+        """Handle  operations
+        Returns:
+            Response -- JSON serialized event instance
+        """
+        scents = Scent.objects.create(
+            scent=request.data["scent"]
+        )
+        serializer = CreateScentSerializer(scents)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 class ScentSerializer(serializers.ModelSerializer):
+    """JSON serializer for scents
+
+    Arguments:
+        serializers
+    """
+    class Meta:
+        model = Scent
+        fields = ('id', 'fragrance')
+
+class CreateScentSerializer(serializers.ModelSerializer):
     """JSON serializer for scents
 
     Arguments:
